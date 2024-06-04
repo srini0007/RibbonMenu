@@ -13,23 +13,23 @@ export const FindTag = (element: TMinimizeElement) => {
       </RibbonIconButton>
     );
   }
-  else if(element.type==='IconDropDown'){
-    return (
-        <RibbonDropdown>
-            <RibbonIconButton caption={element.label} className={element.class}>
-                {element.children}
-            </RibbonIconButton>
-            <RibbonMenu>
-                {
-                    element.arr.map(dropItem=>(
-                        <RibbonDropdownItem caption={dropItem.label} className={dropItem.class}>
-                            {dropItem.children}
-                        </RibbonDropdownItem>
-                    ))
-                }
-            </RibbonMenu>
-        </RibbonDropdown>
-    )
-  }
+//   else if(element.type==='IconDropDown'){
+//     return (
+//         <RibbonDropdown>
+//             <RibbonIconButton caption={element.label} className={element.class}>
+//                 {element.children}
+//             </RibbonIconButton>
+//             <RibbonMenu>
+//                 {
+//                     element.arr.map(dropItem=>(
+//                         <RibbonDropdownItem caption={dropItem.label} className={dropItem.class}>
+//                             {dropItem.children}
+//                         </RibbonDropdownItem>
+//                     ))
+//                 }
+//             </RibbonMenu>
+//         </RibbonDropdown>
+//     )
+//   }
   return null;
 };

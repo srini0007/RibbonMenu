@@ -1,0 +1,101 @@
+parent *{
+  font-size:inherit!important;
+}
+
+.caption { /*normal ribbon button */
+  font-size: 13px !important;
+  font-weight: 500;
+}
+
+.ribbon-menu .tabs-holder a{   /*tabs */
+  font-size:13px !important;
+  font-weight: 500;
+
+}
+
+.title{  /* bottom section header or group name*/
+  font-size:12px !important;
+  font-weight: 500;
+}
+
+.tabs-holder{
+  background-color: rgb(115, 93, 216) !important  ;
+}
+
+.icon{
+  width: 7px;
+}
+
+.ribbon-menu .tabs-holder li{  /* tabs backgorund*/
+  background-color: inherit ;
+}
+
+.active{  /*current tab */
+  background-color: white !important;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.ribbon-button {   /* for the large button*/
+  min-height: 60px;
+  min-width: 60px;
+}
+
+.ribbon-button:hover {   /* for the large button*/
+  background-color: red !important;
+  border-radius: 8px;
+}
+.ribbon-button:hover > .caption {
+  color: white;
+}
+
+.ribbon-icon-button:hover{
+  background-color: red !important;
+  border-radius: 8px;
+  color:white;
+}
+
+.title{
+  border-top: 0px !important;
+}
+
+
+
+.big-icons{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ribbon-icon-button{
+  min-height: 15px;
+}
+
+.ribbon-menu{
+  overflow-x: hidden;
+}
+
+
+.ribbon-menu .tabs-holder li{  /* contains all tabs*/
+  color:white ;
+} 
+
+.active{
+  color:black !important
+}
+
+.tabs-holder{
+  min-height: 15px;
+}
+
+
+.custom-dropdown{
+  left:-200px !important ;
+}
+
+.minimize-height{
+  height: 30px !important;
+}
+
+/* .drop-left{
+  left:-300px;
+} */

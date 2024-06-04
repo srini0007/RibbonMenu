@@ -1,7 +1,7 @@
 // src/components/findTag.tsx
 
 import React from 'react';
-import { RibbonDropdown, RibbonDropdownItem, RibbonIconButton, RibbonMenu } from '@metroui/ribbon-menu';
+import { RibbonDropdown, RibbonDropdownItem, RibbonDropdownMenu, RibbonIconButton, RibbonMenu } from '@metroui/ribbon-menu';
 import { TMinimizeElement } from './RibbonMinimizeView';
 
 export const FindTag = (element: TMinimizeElement) => {
@@ -13,23 +13,23 @@ export const FindTag = (element: TMinimizeElement) => {
       </RibbonIconButton>
     );
   }
-//   else if(element.type==='IconDropDown'){
-//     return (
-//         <RibbonDropdown>
-//             <RibbonIconButton caption={element.label} className={element.class}>
-//                 {element.children}
-//             </RibbonIconButton>
-//             <RibbonMenu>
-//                 {
-//                     element.arr.map(dropItem=>(
-//                         <RibbonDropdownItem caption={dropItem.label} className={dropItem.class}>
-//                             {dropItem.children}
-//                         </RibbonDropdownItem>
-//                     ))
-//                 }
-//             </RibbonMenu>
-//         </RibbonDropdown>
-//     )
-//   }
+  else if(element.type==='IconDropDown'){
+    return (
+        <RibbonDropdown>
+            <RibbonIconButton caption={element.label} className={element.class}>
+                {element.children}
+            </RibbonIconButton>
+            <RibbonDropdownMenu>
+                {
+                    element.arr.map(dropItem=>(
+                        <RibbonDropdownItem caption={dropItem.label} className={dropItem.class}>
+                            {dropItem.children}
+                        </RibbonDropdownItem>
+                    ))
+                }
+            </RibbonDropdownMenu>
+        </RibbonDropdown>
+    )
+  }
   return null;
 };

@@ -56,10 +56,10 @@ const App = () => {
     console.log(option);
     setSelectedRadio(option);
   }
-  const [limit,setLimit] = useState(window.innerWidth-150);
+  const [limit,setLimit] = useState(window.innerWidth-200);
   window.addEventListener('resize',()=>{
 
-    setLimit(window.innerWidth-150);
+    setLimit(window.innerWidth-200);
   })
   const [isMinimized,setIsMinimized] = useState(false);
   const totalWidth = useElementWidth('.find-width', [isMinimized]);

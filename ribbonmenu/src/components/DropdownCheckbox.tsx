@@ -5,7 +5,7 @@ interface Option {
   value: string;
 }
 
-interface IDropdownRadioProps {
+ export interface IDropdownRadioProps {
   options: Option[];
   defaultLabel: string;
   onSelectionChange: (selectedValue: string) => void;

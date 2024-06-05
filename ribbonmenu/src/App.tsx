@@ -67,6 +67,40 @@ const App = () => {
   // console.log(totalWidth,limit);
 
   const minimizeElements:TMinimizeElement[] = [
+    {type:"RadioButton",
+      options:[{
+      label:"Refresh",
+      children:<SetReactSmallIcon>
+      <TbRefresh className="big-icons text-black" />
+    </SetReactSmallIcon>,
+      class:'find-width'
+    },
+    {
+      label:"sad",
+      children:<SetReactSmallIcon>
+      <TbRefresh className="big-icons text-black" />
+    </SetReactSmallIcon>,
+      class:'find-width'
+    }
+  ]
+    },
+    {type:"CheckBox",
+    options:[{
+    label:"Refresh",
+    children:<SetReactSmallIcon>
+    <TbRefresh className="big-icons text-black" />
+  </SetReactSmallIcon>,
+    class:'find-width'
+  },
+  {
+    label:"sad",
+    children:<SetReactSmallIcon>
+    <TbRefresh className="big-icons text-black" />
+  </SetReactSmallIcon>,
+    class:'find-width'
+  }
+]
+  },
     {type:"IconDropDown",
       label:"hello",
       children:<SetReactSmallIcon>
@@ -223,12 +257,61 @@ const App = () => {
     <TbRefresh className="big-icons text-black" />
   </SetReactSmallIcon>,
     class:'find-width'
-  },]
+  },{type:"IconDropDown",
+  label:"hello",
+  children:<SetReactSmallIcon>
+<TbRefresh className="big-icons text-black" />
+</SetReactSmallIcon>,
+arr:[{label:"hi",
+children:<SetReactSmallIcon>
+<TbRefresh className="big-icons text-black" />
+</SetReactSmallIcon>,
+},{label:"klo",
+children:<SetReactSmallIcon>
+<TbRefresh className="big-icons text-black" />
+</SetReactSmallIcon>,
+}]
+},
+{type:"RadioButton",
+      options:[{
+      label:"Refresh",
+      children:<SetReactSmallIcon>
+      <TbRefresh className="big-icons text-black" />
+    </SetReactSmallIcon>,
+      class:'find-width'
+    },
+    {
+      label:"sad",
+      children:<SetReactSmallIcon>
+      <TbRefresh className="big-icons text-black" />
+    </SetReactSmallIcon>,
+      class:'find-width'
+    }
+  ]
+    },{type:"CheckBox",
+    options:[{
+    label:"Refresh",
+    children:<SetReactSmallIcon>
+    <TbRefresh className="big-icons text-black" />
+  </SetReactSmallIcon>,
+    class:'find-width'
+  },
+  {
+    label:"sasad",
+    children:<SetReactSmallIcon>
+    <TbRefresh className="big-icons text-black" />
+  </SetReactSmallIcon>,
+    class:'find-width'
+  }
+]
+  }
+]
 
 
   // console.log(isMinimized);
     return (
-              <>
+            <div style={{overflow: "auto"}}>
+              <div>
               <RibbonMenu >
                   <RibbonTab label="Home" mode="default">
                     { isMinimized===false && 
@@ -410,6 +493,7 @@ const App = () => {
                       <>
                         <RibbonTabGroup className={'minimize-height'}>
                           <RibbonMinimizeView elements={minimizeElements} limit={limit}/>
+                          
                         {/* <RibbonIconButton className="find-width" caption="Refresh" title="Refresh current window" onClick={()=>{alert('Refresh Button was Clicked!')}}>
                           <SetReactSmallIcon>
                             <TbRefresh className="big-icons text-black" />
@@ -487,7 +571,8 @@ const App = () => {
                     </RibbonTabGroup>
                   </RibbonTab>
               </RibbonMenu>
-              </>
+              </div>
+              </div>
 
                 
     )

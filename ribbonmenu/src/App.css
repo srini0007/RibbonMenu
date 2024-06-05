@@ -99,3 +99,12 @@ parent *{
 /* .drop-left{
   left:-300px;
 } */
+
+
+.extra-dropdown{
+  left:-150px;
+}
+
+.dropdown{  /* fixes right side hanging in dropdown*/
+  float: none;
+}

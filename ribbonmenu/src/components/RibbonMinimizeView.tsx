@@ -6,24 +6,64 @@ import MeasureWidth from './MeasureWidth';
 import RibbonMinimize from './RibbonMinimize';
 import RibbonExtra from './RibbonExtra';
 import Dropdown from './Dropdown';
+
+export type TDropItem ={
+    label?: string;
+    class?: string;
+    children?: React.ReactNode;
+    onClick?:any;
+    hotkey?:string ;
+    target?:string;
+    [key:string]:any;
+}
+
 export type TMinimizeElement =   | {
     type: 'IconButton';
     label?: string;
     class?: string;
-    children?: any;
+    children?: React.ReactNode;
     onClick?:any;
+    hotkey?:string ;
+    target?:string;
+    [key:string]:any;
   }
 | {
     type: 'IconDropDown';
     label?: string;
     class?: string;
     children?: any;
-    arr: {label?:string,
-        class?:string,
-        children?:any,
-        onClick?:any,
-    }[]; 
-  };
+    onClick?:any;
+    hotkey?:string ;
+    target?:string;
+    [key:string]:any;
+    arr: TDropItem[]; 
+  } |
+  {
+    type:"RadioButton";
+    active?:number;
+    options:{
+        label?: string;
+        class?: string;
+        children?: React.ReactNode;
+        onClick?:any;
+        hotkey?:string ;
+        target?:string;
+        [key:string]:any;
+    }[];
+  } | 
+  {
+    type:"CheckBox";
+    active?:number | number[];
+    options:{
+        label?: string;
+        class?: string;
+        children?: React.ReactNode;
+        onClick?:any;
+        hotkey?:string ;
+        target?:string;
+        [key:string]:any;
+    }[];
+  }
 
 interface IRibbonMinimizeElement {
   elements: TMinimizeElement[];
@@ -83,10 +123,9 @@ function RibbonMinimizeView({ elements, limit }:IRibbonMinimizeElement) {
       {
         extraElements.length>0 &&
         <Dropdown
-            items={extraElements.map((element) => ({
-              label: element.label || '',
-              onClick: () => console.log(`${element.label} clicked`),
-            })
+            elements={extraElements.map((elements) => (
+                elements
+            )
         )} 
         />
       }

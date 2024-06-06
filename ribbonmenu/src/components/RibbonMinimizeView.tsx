@@ -6,6 +6,7 @@ import MeasureWidth from './MeasureWidth';
 import RibbonMinimize from './RibbonMinimize';
 import RibbonExtra from './RibbonExtra';
 import Dropdown from './Dropdown';
+import {MifIcon} from "@metroui/icons";
 
 export type TDropItem ={
     label?: string;
@@ -17,6 +18,39 @@ export type TDropItem ={
     [key:string]:any;
 }
 
+export type TOptionItem = {
+    label?: any;
+    class?: string;
+    children?: React.ReactNode;
+    onClick?:any;
+    hotkey?:string ;
+    target?:string;
+    [key:string]:any;
+}
+
+export type TDrop={
+  type:'DropItem',
+  label?: string;
+  class?: string;
+  children?: React.ReactNode;
+  onClick?:any;
+  hotkey?:string ;
+  target?:string;
+  [key:string]:any;
+} |
+{
+  type:'RadioDrop',
+  active?:number
+  arr:TDropItem[],
+
+} |
+{
+  type:"CheckDrop",
+  active?:number | number[]
+  arr:TDropItem[],
+
+}
+
 export type TMinimizeElement =   | {
     type: 'IconButton';
     label?: string;
@@ -25,6 +59,8 @@ export type TMinimizeElement =   | {
     onClick?:any;
     hotkey?:string ;
     target?:string;
+    icon?:string;
+    title?:string;
     [key:string]:any;
   }
 | {
@@ -35,35 +71,33 @@ export type TMinimizeElement =   | {
     onClick?:any;
     hotkey?:string ;
     target?:string;
+    icon?:string;
+    title?:string;
     [key:string]:any;
-    arr: TDropItem[]; 
+    arr: TDrop[]; 
+  } | 
+  {
+    type:'ToolButton',
+    class?: string,
+    icon?: string,
+    image?: string,
+    children?: any
+    title?: string,
+    onClick?: any,
+    hotkey?: string,
+    [key:string]:any
   } |
   {
     type:"RadioButton";
     active?:number;
-    options:{
-        label?: string;
-        class?: string;
-        children?: React.ReactNode;
-        onClick?:any;
-        hotkey?:string ;
-        target?:string;
-        [key:string]:any;
-    }[];
+    options:TOptionItem[];
   } | 
   {
     type:"CheckBox";
     active?:number | number[];
-    options:{
-        label?: string;
-        class?: string;
-        children?: React.ReactNode;
-        onClick?:any;
-        hotkey?:string ;
-        target?:string;
-        [key:string]:any;
-    }[];
+    options:TOptionItem[];
   }
+
 
 interface IRibbonMinimizeElement {
   elements: TMinimizeElement[];
@@ -78,6 +112,7 @@ function RibbonMinimizeView({ elements, limit }:IRibbonMinimizeElement) {
   const [openExtra,setOpenExtra] = useState(false);
   const widthLimit = limit || 1000000;
 
+    console.log("doas",elements);
   useEffect(() => {
     const widths: number[] = [];
     const handleMeasurement = (index: number) => (width: number) => {
@@ -111,7 +146,7 @@ function RibbonMinimizeView({ elements, limit }:IRibbonMinimizeElement) {
 
     setMeasuredWidths(measuringElements as any);
   }, [elements, widthLimit]);
-    console.log(maxIndex);
+    // console.log(maxIndex);
   return (
     <>
       {measuredWidths}

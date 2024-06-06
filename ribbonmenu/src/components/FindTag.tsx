@@ -2,13 +2,48 @@
 
 import React from 'react';
 import { RibbonButtonGroup, RibbonDropdown, RibbonDropdownItem, RibbonDropdownMenu, RibbonIconButton, RibbonMenu } from '@metroui/ribbon-menu';
-import { TMinimizeElement } from './RibbonMinimizeView';
+import { TDrop, TMinimizeElement } from './RibbonMinimizeView';
+import {MifIcon} from "@metroui/icons";
+
+
+function helper(dropItem:TDrop,ind:number){
+  if(dropItem.type==='DropItem'){
+    return (
+      <RibbonDropdownItem caption={dropItem.label} className={dropItem.class} key={ind}>
+          {dropItem.children}
+      </RibbonDropdownItem>
+    )
+  }
+  else if(dropItem.type==='RadioDrop'){
+    return (
+      <RibbonButtonGroup radio active={dropItem.active} >
+        {dropItem.arr.map((item,index)=>(
+          <RibbonDropdownItem caption={item.label} className={item.class} key={index}>
+          {item.children}
+      </RibbonDropdownItem>
+        ))}
+      </RibbonButtonGroup>
+    )
+  }
+  else if(dropItem.type==='CheckDrop'){
+    return (
+      <RibbonButtonGroup active={dropItem.active} >
+        {dropItem.arr.map((item,index)=>(
+          <RibbonDropdownItem caption={item.label} className={item.class} key={index}>
+          {item.children}
+      </RibbonDropdownItem>
+        ))}
+      </RibbonButtonGroup>
+    )
+  }
+
+}
 
 export const FindTag = (element: TMinimizeElement) => {
   if (element.type === 'IconButton') {
-    console.log(element.onClick,"a");
+    // console.log(element.onClick,"a");
     return (
-      <RibbonIconButton className={element.class} caption={element.label} onClick={element.onClick}>
+      <RibbonIconButton title={element.title} icon={element.icon} className={element.class} caption={element.label} onClick={element.onClick}>
         {element.children}
       </RibbonIconButton>
     );
@@ -16,15 +51,13 @@ export const FindTag = (element: TMinimizeElement) => {
   else if(element.type==='IconDropDown'){
     return (
         <RibbonDropdown>
-            <RibbonIconButton caption={element.label} className={element.class}>
+            <RibbonIconButton title={element.title} icon={element.icon} className={element.class} caption={element.label} onClick={element.onClick}>
                 {element.children}
             </RibbonIconButton>
             <RibbonDropdownMenu>
                 {
                     element.arr.map((dropItem,ind)=>(
-                        <RibbonDropdownItem caption={dropItem.label} className={dropItem.class} key={ind}>
-                            {dropItem.children}
-                        </RibbonDropdownItem>
+                      helper(dropItem,ind)
                     ))
                 }
             </RibbonDropdownMenu>

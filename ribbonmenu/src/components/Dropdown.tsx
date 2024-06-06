@@ -43,7 +43,7 @@ function Dropdown({ elements }:IDropdownProps){
         // </RibbonDropdownMenu>
         // </RibbonDropdown>
         // <RibbonDropdownItem caption={element} />
-        DropdownFindTag(element)
+        DropdownFindTag(element,index===0,index===(elements.length-1),index===0?false:(elements[index-1].type==='CheckBox' || elements[index-1].type==='RadioButton'))
     ))}
     </RibbonDropdownMenu>
  
